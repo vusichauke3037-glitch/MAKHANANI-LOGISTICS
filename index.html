@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0d9488"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Makhanani Logistics"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Makhanani Logistics — Fast Delivery | Xintimani Group</title>
 <style>
 *{box-sizing:border-box}body{font-family:Arial,sans-serif;margin:0;background:#f0fdfa;color:#0f172a;padding-bottom:50px;line-height:1.6}
@@ -12,7 +13,9 @@ a.btn,button{border:none;border-radius:10px;padding:12px 16px;font-weight:800;te
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800;background:#ccfbf1;color:#134e4a}
 </style></head>
 <body>
-<header><h1>🚚 MAKHANANI LOGISTICS</h1><p style="margin:0;font-size:13px">Xintimani Group • Fast. Safe. Tracked. • Mr Vusi Chauke • WhatsApp 0780233263<br>Parcels • Food • Documents • School Books</p></header>
+<header><h1>🚚 MAKHANANI LOGISTICS</h1><p style="margin:0;font-size:13px">Xintimani Group • Fast. Safe. Tracked. • Mr Vusi Chauke • WhatsApp 0780233263<br>Parcels • Food • Documents • School Books • 📲 Downloadable App</p></header>
+<div id="installBox" style="display:none;background:#0d9488;color:#fff;padding:12px;text-align:center;font-weight:800;border-bottom:3px solid #0a1f4d">📲 DOWNLOAD APP — Makhanani Logistics<br><button id="installBtn" style="background:#0a1f4d;color:#fff;border:none;padding:12px 20px;border-radius:10px;font-weight:800;margin-top:8px;cursor:pointer">📲 INSTALL APP NOW</button></div>
+<script>let deferredPrompt=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e;document.getElementById('installBox').style.display='block';});document.getElementById('installBtn').addEventListener('click',function(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null;document.getElementById('installBox').style.display='none';});}else{alert('Android Chrome: Tap Menu ⋮ → Add to Home Screen / Install App\n\niPhone Safari: Tap Share ↑ → Add to Home Screen');}});</script>
 <div class="topbar">
 <a class="btn gold" href="https://vusichauke3037-glitch.github.io/XINTIMANI-GROUP/Jobs.html" target="_blank">💼 JOBS</a>
 <a class="btn purple" style="border:2px solid #d4af37" href="https://vusichauke3037-glitch.github.io/MAKHANANI-ACADEMY/" target="_blank">🎓 MAKHANANI ACADEMY</a>
@@ -32,4 +35,6 @@ a.btn,button{border:none;border-radius:10px;padding:12px 16px;font-weight:800;te
 <script>
 function bookDelivery(){var name=document.getElementById('senderName').value.trim()||'Customer';var phone=document.getElementById('senderPhone').value.trim();var pick=document.getElementById('pickupAddr').value.trim();var drop=document.getElementById('dropoffAddr').value.trim();var type=document.getElementById('parcelType').value;var size=document.getElementById('parcelSize').value;if(!pick||!drop){alert('Enter pickup + dropoff');return;}var code='MK-'+Math.floor(1000+Math.random()*9000);var msg='Hello Mr Chauke, I want a DELIVERY 🚚\nName: '+name+'\nPhone: '+phone+'\nPickup: '+pick+'\nDropoff: '+drop+'\nType: '+type+'\nSize: '+size+'\nMy Code: '+code;window.open('https://wa.me/27780233263?text='+encodeURIComponent(msg),'_blank');}
 function trackDelivery(){var c=document.getElementById('trackCode').value.trim().toUpperCase();if(!c){alert('Enter code e.g. MK-1234');return;}document.getElementById('trackResult').innerHTML='<div style="background:#f0fdfa;border:2px solid #0d9488;border-radius:12px;padding:12px"><b>📦 '+c+'</b><br>Status: <b>Checking with driver...</b><br>Send this code to Mr Chauke on WhatsApp for live update.<br><a href="https://wa.me/27780233263?text='+encodeURIComponent('Hello Mr Chauke, TRACK '+c)+'" target="_blank">📩 Ask Mr Chauke →</a></div>';}
-</script></body></html>
+</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(e){console.log('SW:',e);});}</script>
+</body></html>
