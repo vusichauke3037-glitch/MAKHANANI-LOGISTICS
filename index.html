@@ -1,40 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0d9488"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Makhanani Logistics"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Makhanani Logistics — Fast Delivery | Xintimani Group</title>
-<style>
-*{box-sizing:border-box}body{font-family:Arial,sans-serif;margin:0;background:#f0fdfa;color:#0f172a;padding-bottom:50px;line-height:1.6}
-header{background:linear-gradient(135deg,#0a1f4d,#0d9488);color:#fff;padding:16px;text-align:center}
-.topbar{background:#fff;padding:10px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;border-bottom:3px solid #0d9488;position:sticky;top:0;z-index:20}
-a.btn,button{border:none;border-radius:10px;padding:12px 16px;font-weight:800;text-decoration:none;display:inline-block;cursor:pointer}input,select,textarea{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #ddd}
-.card{background:#fff;border-radius:16px;padding:16px;margin:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}.wrap{max-width:1000px;margin:0 auto}
-.gold{background:#d4af37;color:#0a1f4d}.blue{background:#0a1f4d;color:#fff}.green{background:#059669;color:#fff}.teal{background:#0d9488;color:#fff}.purple{background:#7c3aed;color:#fff}.orange{background:#ea580c;color:#fff}.dark{background:#0f172a;color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
-.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800;background:#ccfbf1;color:#134e4a}
-</style></head>
+<title>Makhanani Logistics | Transport & Delivery</title>
+<style>body{font-family:Arial,sans-serif;margin:0;background:#f8f9fa;color:#222;text-align:center}header{background:#000;color:#fff;padding:30px 15px}header img{width:230px;max-width:85%;background:#fff;padding:10px;border-radius:14px}h1{color:#d4af37}.btn{display:inline-block;background:#d4af37;color:#000;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold;margin:10px}.card{background:#fff;margin:15px auto;max-width:650px;padding:20px;border-radius:14px;text-align:left;box-shadow:0 2px 10px rgba(0,0,0,.08)}footer{background:#000;color:#fff;padding:20px}</style></head>
 <body>
-<header><h1>🚚 MAKHANANI LOGISTICS</h1><p style="margin:0;font-size:13px">Xintimani Group • Fast. Safe. Tracked. • Mr Vusi Chauke • WhatsApp 0780233263<br>Parcels • Food • Documents • School Books • 📲 Downloadable App</p></header>
-<div id="installBox" style="display:none;background:#0d9488;color:#fff;padding:12px;text-align:center;font-weight:800;border-bottom:3px solid #0a1f4d">📲 DOWNLOAD APP — Makhanani Logistics<br><button id="installBtn" style="background:#0a1f4d;color:#fff;border:none;padding:12px 20px;border-radius:10px;font-weight:800;margin-top:8px;cursor:pointer">📲 INSTALL APP NOW</button></div>
-<script>let deferredPrompt=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e;document.getElementById('installBox').style.display='block';});document.getElementById('installBtn').addEventListener('click',function(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null;document.getElementById('installBox').style.display='none';});}else{alert('Android Chrome: Tap Menu ⋮ → Add to Home Screen / Install App\n\niPhone Safari: Tap Share ↑ → Add to Home Screen');}});</script>
-<div class="topbar">
-<a class="btn gold" href="https://vusichauke3037-glitch.github.io/XINTIMANI-GROUP/Jobs.html" target="_blank">💼 JOBS</a>
-<a class="btn purple" style="border:2px solid #d4af37" href="https://vusichauke3037-glitch.github.io/MAKHANANI-ACADEMY/" target="_blank">🎓 MAKHANANI ACADEMY</a>
-<a class="btn blue" href="https://vusichauke3037-glitch.github.io/XINTIMANI-GROUP/" target="_blank">🏢 GROUP</a>
-<a class="btn teal" href="https://vusichauke3037-glitch.github.io/MAKHANANI-LTSM/" target="_blank">📚 LTSM</a>
-<a class="btn orange" href="https://vusichauke3037-glitch.github.io/MAKHANANI-FAST-FOOD/" target="_blank">🍔 FOOD</a>
-<a class="btn teal" href="https://vusichauke3037-glitch.github.io/MAKHANANI-LOGISTICS/" target="_blank">🚚 LOGISTICS HOME</a>
-<a class="btn green" href="https://wa.me/27780233263?text=Hello%20Mr%20Chauke%2C%20I%20want%20a%20DELIVERY" target="_blank">📩 BOOK DELIVERY</a></div>
-<div class="wrap">
-<div class="card" style="text-align:center;border:3px solid #0d9488"><span class="badge">✅ TRACKED • PHOTO + SIGNATURE PROOF</span><h2>📦 Book A Delivery — 1 Minute</h2><p>Your Name: <input id="senderName" placeholder="Your Name"><br>Phone: <input id="senderPhone" placeholder="Your Phone"><br>Pickup Address: <textarea id="pickupAddr" placeholder="Where to collect?"></textarea><br>Dropoff Address: <textarea id="dropoffAddr" placeholder="Where to deliver?"></textarea><br>What Is It? <select id="parcelType"><option>Parcel / Package</option><option>Food Order</option><option>Documents</option><option>School Books</option><option>Other</option></select><br>Size: <select id="parcelSize"><option>Small — R50</option><option>Medium — R80</option><option>Large — R120</option><option>Food Delivery — R40</option></select></p><button class="teal" style="width:100%" onclick="bookDelivery()">📩 BOOK ON WHATSAPP →</button><p style="font-size:12px">You will get a code <b>MK-XXXX</b>. Driver must show Photo + Signature on delivery.</p></div>
-<div class="card"><h2>🔍 Track Delivery</h2><p>Enter Code: <input id="trackCode" placeholder="e.g. MK-1234"><br><button class="blue" style="width:100%" onclick="trackDelivery()">🔍 TRACK →</button></p><div id="trackResult"></div></div>
-<div class="card"><h2>💰 Price List</h2><div class="grid"><div class="card" style="margin:0;text-align:center"><b>Small</b><br>R50<br><small>Documents, small parcel</small></div><div class="card" style="margin:0;text-align:center"><b>Medium</b><br>R80<br><small>Box, books</small></div><div class="card" style="margin:0;text-align:center"><b>Large</b><br>R120<br><small>Big box</small></div><div class="card" style="margin:0;text-align:center"><b>Food</b><br>R40<br><small>Makhanani Food</small></div><div class="card" style="margin:0;text-align:center"><b>Same-Day</b><br>+R20<br><small>Urgent</small></div><div class="card" style="margin:0;text-align:center"><b>School Run</b><br>Ask Quote<br><small>Bulk books</small></div></div></div>
-<div class="card"><h2>🚚 For Drivers — Proof of Delivery</h2><p>Driver: After delivery, send Photo + Signature + Code MK-XXXX to Mr Chauke on WhatsApp.</p><a class="btn green" href="https://wa.me/27780233263?text=Hello%20Mr%20Chauke%2C%20DELIVERY%20DONE.%20Code%20MK-" target="_blank">✅ SEND PROOF →</a> <a class="btn gold" href="https://vusichauke3037-glitch.github.io/XINTIMANI-GROUP/Jobs.html" target="_blank">💼 DRIVER JOBS →</a></div>
-<div class="card"><h2>🎓 Study While You Wait</h2><p>Makhanani Academy — 1,000 Questions, Free Practice.</p><a class="btn purple" href="https://vusichauke3037-glitch.github.io/MAKHANANI-ACADEMY/" target="_blank">🎓 OPEN ACADEMY →</a></div>
-<div class="card" style="text-align:center;font-size:12px"><b>MAKHANANI LOGISTICS — XINTIMANI GROUP</b><br>Mr Vusi Chauke — WhatsApp 0780233263</div>
-</div>
-<script>
-function bookDelivery(){var name=document.getElementById('senderName').value.trim()||'Customer';var phone=document.getElementById('senderPhone').value.trim();var pick=document.getElementById('pickupAddr').value.trim();var drop=document.getElementById('dropoffAddr').value.trim();var type=document.getElementById('parcelType').value;var size=document.getElementById('parcelSize').value;if(!pick||!drop){alert('Enter pickup + dropoff');return;}var code='MK-'+Math.floor(1000+Math.random()*9000);var msg='Hello Mr Chauke, I want a DELIVERY 🚚\nName: '+name+'\nPhone: '+phone+'\nPickup: '+pick+'\nDropoff: '+drop+'\nType: '+type+'\nSize: '+size+'\nMy Code: '+code;window.open('https://wa.me/27780233263?text='+encodeURIComponent(msg),'_blank');}
-function trackDelivery(){var c=document.getElementById('trackCode').value.trim().toUpperCase();if(!c){alert('Enter code e.g. MK-1234');return;}document.getElementById('trackResult').innerHTML='<div style="background:#f0fdfa;border:2px solid #0d9488;border-radius:12px;padding:12px"><b>📦 '+c+'</b><br>Status: <b>Checking with driver...</b><br>Send this code to Mr Chauke on WhatsApp for live update.<br><a href="https://wa.me/27780233263?text='+encodeURIComponent('Hello Mr Chauke, TRACK '+c)+'" target="_blank">📩 Ask Mr Chauke →</a></div>';}
-</script>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(e){console.log('SW:',e);});}</script>
+<header>
+<img src="logo.png" alt="Xintimani Group Logo">
+<h1>MAKHANANI LOGISTICS</h1>
+<p>Transport & Delivery | Part of Xintimani Group</p>
+<a class="btn" href="https://wa.me/27780233263?text=Hi%20Makhanani%20Logistics%2C%20I%20need%20transport">📲 Book Transport</a>
+</header>
+
+<div class="card"><h2>🚚 Services</h2>
+<p>✅ School Transport & Staff Transport</p>
+<p>✅ Goods Delivery & Courier (Gauteng & Limpopo)</p>
+<p>✅ LTSM & Textbook Delivery to Schools</p>
+<p>✅ Furniture & Bulk Moves</p></div>
+
+<div class="card"><h2>📞 Contact</h2>
+<p>📲 078 023 3263<br>📧 vusichauke3037@gmail.com<br>🌐 <a href="https://vusichauke3037-glitch.github.io/XINTIMANI-GROUP/">Back to Xintimani Group</a></p>
+<a class="btn" href="https://wa.me/27780233263">WhatsApp Us Now</a></div>
+<footer>© 2026 Makhanani Logistics | Xintimani Group</footer>
 </body></html>
